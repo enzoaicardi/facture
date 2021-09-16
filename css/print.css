@@ -1,0 +1,153 @@
+.print{
+
+    flex: none;
+    display: block;
+
+    width: 95%;
+    max-width: 720px;
+    padding: 16px 10px;
+    margin: 10px 0 40px 0;
+
+    border: 1px solid black;
+    background-color: white;
+    
+}
+
+@media screen and (min-width: 600px) {
+    .print{
+        padding: 24px 20px;
+    }
+}
+
+.print > .logo{
+    width: 100%;
+    max-width: 205px;
+    margin-bottom: 10px;
+}
+
+/* EN TETE */
+
+.print header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.print header .consommateur{
+    margin-left: 10px;
+}
+
+.print header h1{
+    font-size: 34px;
+}
+
+.print header h2{
+    width: 100%;
+
+    font-weight: 600;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+
+    background-color: hsl(240, 20%, 20%);
+    color: white;
+}
+
+.print header .id{
+    margin-top: 30px;
+    padding: 5px 10px;
+
+    background-color: hsl(240, 50%, 95%);
+}
+
+/* OBJET */
+
+.objet{
+    margin-top: 30px;
+    padding-top: 15px;
+
+    border-top: 2px solid hsl(240, 20%, 20%);
+}
+
+/* TABLE */
+
+.calc{
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.calc td, .calc th{
+    border: 1px solid hsl(240, 20%, 20%);
+    padding: 6px 10px;
+    vertical-align: top;
+}
+
+.calc th{
+    background-color: hsl(240, 50%, 95%);
+    padding: 10px;
+    font-weight: 700;
+}
+
+.calc tr td:nth-child(n+2){
+    text-align: right;
+    width: 100px;
+}
+
+.calc tr td h4{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* list style */
+
+.calc tr ul{
+    list-style: none;
+    margin: 3px 0 2px 0;
+}
+
+.calc tr ul li{
+    font-size: 13px;
+}
+
+.calc tr ul li::before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    margin-right: 6px;
+    margin-bottom: 2px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+    background-color: hsl(240, 20%, 20%);
+}
+
+.calc .total td:first-child{
+    border: none;
+    border-top: 1px solid hsl(240, 20%, 20%);
+    text-align: right;
+}
+
+.calc .payer td:last-child{
+    text-align: left;
+}
+
+/* border for canvas */
+
+.calc tr th{
+    border-bottom: none;
+}
+
+.calc tr:nth-last-child(n+2) td{
+    border-bottom: none;
+}
+
+.calc tr td:first-child, .calc tr th:first-child{
+    border-right: none;
+}
+
+/* mentions */
+
+.print footer{
+    margin-top: 20px;
+}

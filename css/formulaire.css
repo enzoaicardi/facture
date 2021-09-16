@@ -1,0 +1,326 @@
+
+.formulaire{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.formulaire > .logo{
+    width: 30vw;
+    min-width: 240px;
+    max-width: 400px;
+}
+
+.formulaire > .bloc{
+    width: 90%;
+    max-width: 400px;
+    padding: 20px 10px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    transition: 0.2s ease;
+}
+
+.formulaire .h{
+    opacity: 0;
+    filter: blur(2px);
+    visibility: hidden;
+    transform: scale(0.8);
+
+    transition: all 0.2s ease, visibility 0s linear;
+}
+
+/* TYPE */
+
+.formulaire .type{
+    background-color: hsl(240, 100%, 70%);
+}
+
+    .formulaire .type button{
+        flex: none;
+        padding: 6px 0;
+        margin: 0 5px;
+        width: 90px;
+
+        font-weight: 700;
+
+        border-radius: 5px;
+        background-color: hsl(240, 50%, 95%);
+    }
+
+    .formulaire .type .s{
+        color: white;
+        background-color: hsl(240, 20%, 20%);
+    }
+
+/* IDENTITY */
+
+.formulaire .identity{
+    background-color: hsl(240, 20%, 20%);
+    justify-content: space-between;
+}
+
+    .formulaire .identity input{
+        width: 100%;
+        margin: 0 10px;
+        padding: 6px 10px;
+        border-radius: 5px;
+        background-color: hsl(240, 50%, 95%);
+        font-weight: 600;
+    }
+
+    .formulaire .identity .sm{
+        width: 130px;
+    }
+
+    .formulaire .identity .l{
+        margin: 15px 10px;
+    }
+
+/* DATE - REFERENCE */
+
+.formulaire .ref{
+    background-color: hsl(240, 100%, 70%);
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    margin-bottom: 0px;
+}
+
+    .formulaire .ref input[type=text]{
+        padding: 6px 10px;
+        margin: 0 10px;
+        width: 100px;
+
+        font-weight: 700;
+
+        border-radius: 5px;
+        background-color: hsl(240, 50%, 95%);
+    }
+
+    .formulaire .ref input[type=number]{
+        flex: 1 1 auto;
+        width: 10px;
+        margin-left: 0px;
+        margin-right: 10px;
+        padding: 2px 5px;
+        
+        font-size: 16px;
+        font-weight: 600;
+        color: hsl(240, 50%, 95%);
+
+        background-color: transparent;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid hsl(240, 20%, 20%);
+        outline: none;
+    }
+
+    .formulaire .ref p{
+        font-weight: 600;
+        font-size: 16px;
+        margin-left: 10px;
+
+        color: hsl(240, 50%, 95%);
+    }
+
+/* MODE */
+
+.formulaire .mode{
+    width: 70%;
+    padding: 0;
+
+    border-radius: 0;
+    background-color: transparent;
+}
+
+    .formulaire .mode button{
+        flex: none;
+        padding: 10px 0;
+        margin: 0 10px;
+        width: 110px;
+
+        font-weight: 700;
+        color: hsl(240, 50%, 95%);
+
+        border-radius: 5px;
+        background-color: hsl(240, 20%, 20%);
+    }
+
+    .formulaire .mode .s{
+        background-color: hsl(240, 100%, 70%);
+        border: 2px solid hsl(240, 20%, 20%);
+    }
+
+/* TASK */
+
+.formulaire .task{
+    max-width: 640px;
+    padding: 26px 10px;
+    margin-top: 60px;
+    flex-direction: column;
+
+    background-color: hsl(240, 50%, 95%);
+}
+
+    .formulaire .task .add{
+        width: 90%;
+        padding: 10px 0;
+        margin-bottom: 20px;
+
+        font-weight: 700;
+
+        border-radius: 5px;
+        background-color: hsl(240, 100%, 70%);
+    }
+
+    .formulaire .task_list{
+        flex: none;
+        width: 90%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .formulaire .task_list section{
+        width: 100%;
+        margin-bottom: 10px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+        .formulaire .task_list .desc{
+            flex: none;
+            width: calc(100% - 44px);
+            padding: 6px 10px;
+
+            border: 2px solid hsl(240, 20%, 20%);
+            border-radius: 5px;
+        }
+
+        .formulaire .task_list .title{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+            .formulaire .task_list .desc ul{
+                flex: none;
+                width: 100%;
+                margin: 8px 0 2px 0;
+                padding: 0;
+                padding-left: 4px;
+
+                list-style: none;
+            }
+                .formulaire .task_list .desc li{
+                    width: 100%;
+                    margin-bottom: 2px;
+
+                    font-weight: 400;
+                    font-size: 12px;
+
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+
+                .formulaire .task_list .desc li::before{
+                    content: '';
+                    width: 4px;
+                    height: 4px;
+                    margin-right: 6px;
+                    margin-bottom: 2px;
+
+                    display: inline-block;
+
+                    border-radius: 50%;
+                    background-color: hsl(240, 20%, 20%);
+                }
+
+            .formulaire .task_list .desc p{
+                flex: none;
+                width: max-content;
+                margin-left: 10px;
+
+                color: hsl(115, 75%, 40%);
+                font-weight: 600;
+            }
+
+            .formulaire .task_list .desc h4{
+                flex: 1 1 auto;
+                font-weight: 700;
+            }
+
+        .formulaire .task_list button{
+            flex: none;
+            height: 34px;
+            width: 34px;
+            margin-left: 10px;
+
+            background-color: hsl(240, 20%, 20%);
+            border-radius: 5px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formulaire .task_list svg{
+            width: 24px;
+            height: 24px;
+            fill: hsl(240, 50%, 95%);
+        }
+
+    
+    .formulaire .task .total{
+        margin-top: 10px;
+        width: 90%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .formulaire .task .total p:first-child{
+        font-weight: 600;
+        margin-right: 6px;
+    }
+        .formulaire .task .total.t p:first-child{
+            display: none;
+        }
+
+    .formulaire .task .total input{
+        width: 60px;
+        height: 34px;
+        padding: 0 10px;
+        margin-right: 20px;
+        font-weight: 700;
+        
+        border-radius: 5px;
+        border: 2px solid hsl(240, 20%, 20%);
+    }
+        .formulaire .task .total.t input{
+            display: none;
+        }
+
+    .formulaire .task .total p:last-child{
+        padding: 7px 14px;
+        /* margin-right: 44px; */
+        border-radius: 5px;
+        font-weight: 400;
+        background-color: hsl(240, 20%, 20%);
+        color: hsl(240, 50%, 95%);
+    }
+
+        .formulaire .task .total b{
+            font-weight: 700;
+            color: hsl(240, 50%, 95%);
+        }
+    

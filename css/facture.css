@@ -1,0 +1,66 @@
+.facture{
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow: auto;
+    transition: 0.2s ease;
+}
+
+.facture.h{
+    visibility: hidden;
+    padding-left: 40px;
+    opacity: 0;
+
+    transition: padding-left 0.2s ease, opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+
+/* CLOSE */
+
+.facture .close{
+    width: 95%;
+    max-width: 720px;
+    padding-top: 10px;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.facture .close svg{
+    cursor: pointer;
+    flex: none;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    fill: hsl(240, 50%, 95%);
+
+    border-radius: 5px;
+    background-color: hsl(10, 70%, 50%);
+}
+
+/* LINK */
+
+.facture .dl{
+    font-size: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+/* FINISH */
+
+.facture .finish{
+    margin: 0;
+    width: 140px;
+    border-radius: 10px 10px 0 0;
+    background-color: hsl(130, 80%, 70%);
+}
