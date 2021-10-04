@@ -11,6 +11,7 @@
     width: 30vw;
     min-width: 240px;
     max-width: 400px;
+    max-height: 80px;
 }
 
 .formulaire > .bloc{
@@ -135,6 +136,8 @@
 .formulaire .mode{
     width: 70%;
     padding: 0;
+    margin: 0;
+    margin-top: 30px;
 
     border-radius: 0;
     background-color: transparent;
@@ -142,15 +145,25 @@
 
     .formulaire .mode button{
         flex: none;
-        padding: 10px 0;
-        margin: 0 10px;
+        padding: 0;
+        margin: 0 10px 15px 10px;
         width: 110px;
+        height: 40px;
 
         font-weight: 700;
         color: hsl(240, 50%, 95%);
 
         border-radius: 5px;
         background-color: hsl(240, 20%, 20%);
+    }
+
+    .formulaire .mode.calc{
+        margin: 0;
+        margin-top: 15px;
+    }
+
+    .formulaire .mode.calc button{
+        border-radius: 30px;
     }
 
     .formulaire .mode .s{
@@ -163,7 +176,7 @@
 .formulaire .task{
     max-width: 640px;
     padding: 26px 10px;
-    margin-top: 60px;
+    margin-top: 35px;
     flex-direction: column;
 
     background-color: hsl(240, 50%, 95%);
@@ -323,4 +336,18 @@
             font-weight: 700;
             color: hsl(240, 50%, 95%);
         }
+
+/* Générer */
+
+.formulaire .gen{
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+.formulaire .contract{
+    margin: 0;
+    width: 160px;
+    border-radius: 10px 10px 0 0;
+    background-color: hsl(130, 80%, 70%);;
+}
     

@@ -6,6 +6,21 @@ var info = {
     ref: ''
 };
 
+var presta = {
+
+    nom: 'Aicardi Enzo',
+    adresse: "25 rue d'annonay",
+    ville: "43190 Tence",
+
+    siren: "903 680 296",
+    siret: "903 680 296"
+
+};
+
+var client = {};
+
+var pt = "Services informatique";
+
 // set today date
 setToday();
 function setToday(){
@@ -46,13 +61,30 @@ function Type(e, type){
         updatePrice();
     }
 
-    else if(type === 'cours' || type === 'dep'){
-        presType = type;
-    }
-
     else if(type === 'f' || type === 'd' || type === 'fb'){
         factType = type;
         updateLocalI();
+    }
+
+    else{ // cours, depannage, etc...
+        presType = type;
+
+        switch (presType) {
+            case "depa":
+                pt = "Dépannage informatique (logiciel et/ou machine)"; heure=30; break;
+            case "cour":
+                pt = "Cours d'informatique et médiation numérique"; heure=30; break;
+            case "webd":
+                pt = "Création, entretient ou mise à jour d'un site web"; heure=45; break;
+            case "info":
+                pt = "Infographie, réalisation de maquettes numériques"; heure=40; break;
+            case "logo":
+                pt = "Réalisation d'un logo numérique"; heure=36; break;
+            case "mont":
+                pt = "Montage d'ordinateur"; heure=30; break;
+        }
+
+        updatePrice();
     }
 
 }
@@ -89,9 +121,11 @@ function Blur(s, n){
 function Add(){
     var search = document.querySelector('.search');
     var input = search.querySelector('header input');
+    var customTitle = document.querySelector('.search .custom h4');
 
     search.classList.remove('h');
     input.value = '';
+    customTitle.textContent = '';
 
     setTimeout(function(){
         input.focus();
@@ -101,28 +135,15 @@ function Add(){
     SearchTask('');
 }
 
-function ExportData(){
+function updateData(){
 
-    // Take the text data and export to .print
-    var form = document.querySelector('.formulaire');
     var facture = document.querySelector('.facture');
     var print = facture.querySelector('.print');
-    var tbody = print.querySelector('.calc tbody');
-    tbody.innerHTML = '';
+    var form = document.querySelector('.formulaire');
 
-    info.name = copyText(['.identity [name="nom"]', '.identity [name="prenom"]'], '.consommateur b');
-    copyText(['.identity [name="code"]', '.identity [name="ville"]'], '.consommateur p:nth-child(4)');
-    copyText(['.identity [name="adresse"]'], '.consommateur p:nth-child(3)');
-
-    function copyText(e, o){
-        var t = '';
-        for(var i=0; i<e.length; i++){
-            t += i === 0 ? '' : ' ';
-            t += form.querySelector(e[i]).value;
-        }
-        print.querySelector(o).textContent = t;
-        return t;
-    }
+    info.name = client.nom = copyText(['.identity [name="nom"]', '.identity [name="prenom"]'], '.consommateur b');
+    client.ville = copyText(['.identity [name="code"]', '.identity [name="ville"]'], '.consommateur p:nth-child(4)');
+    client.adresse = copyText(['.identity [name="adresse"]'], '.consommateur p:nth-child(3)');
 
     let num = document.querySelector('.ref [name="numero"]').value;
     local_i = Number(num);
@@ -134,8 +155,29 @@ function ExportData(){
         print.querySelector('.prestataire .r').textContent = 'Devis (non-facturé)';
     }
 
-    var pt = presType === "cours" ? "cours d'informatique et médiation numérique" : "dépannage informatique (logiciel et/ou machine)";
     print.querySelector('.objet span').textContent = pt;
+
+    function copyText(e, o){
+        var t = '';
+        for(var i=0; i<e.length; i++){
+            t += i === 0 ? '' : ' ';
+            t += form.querySelector(e[i]).value;
+        }
+        print.querySelector(o).textContent = t;
+        return t;
+    }
+
+}
+
+function ExportData(){
+
+    // Take the text data and export to .print
+    var facture = document.querySelector('.facture');
+    var print = facture.querySelector('.print');
+    var tbody = print.querySelector('.calc tbody');
+    tbody.innerHTML = '';
+
+    updateData();
 
     // exporting tasks to table
     let p = updatePrice();

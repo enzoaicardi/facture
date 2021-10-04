@@ -29,7 +29,7 @@ var task = [
 
     // Initialisation PC
     {nom: "Configuration de windows", prix: 5},
-    {nom: "Utilisation d'un compte local", prix: "offert"},
+    {nom: "Utilisation d'un compte local", prix: 0},
     {nom: "Nettoyer les applications", prix: 5},
     {nom: "Nettoyer les applications au demarrage", prix: 5},
     {nom: "Installation d'un navigateur et d'une suite bureautique", prix: 5},

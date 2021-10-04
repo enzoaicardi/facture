@@ -84,7 +84,7 @@
     }
 
 
-.search main{
+.search main, .search .custom{
     width: 80%;
     max-width: 640px;
     margin-bottom: 100px;
@@ -95,8 +95,12 @@
     align-items: center;
 }
 
+.search .custom{
+    margin-bottom: 0;
+}
+
 @media screen and (min-width: 640px) {
-    .search main{
+    .search .custom{
         margin-top: 40px;
     }
 }
@@ -122,11 +126,71 @@
     background-color: hsl(240, 50%, 95%);
     border-radius: 5px;
     border-bottom: 4px solid hsl(240, 100%, 70%);
+    height: auto;
 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
 }
+
+    .search .custom .title{
+        background-color: hsl(240, 100%, 85%);
+        border-bottom: 4px solid hsl(240, 100%, 70%);
+        padding: 0 0 0 10px;
+    }
+
+    .search .custom .title h4{
+        margin: 10px 0;
+    }
+
+    .search .custom .title > div{
+        flex: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 4px 0 0 5px;
+        margin: 0;
+        margin-left: 10px;
+
+        height: auto;
+        width: auto;
+        min-width: 20px;
+
+        border-radius: 5px 5px 0 0;
+        background-color: hsl(240, 100%, 70%);
+    }
+
+    .search .custom .title .add-custom{
+        display: inherit;
+        justify-content: inherit;
+        align-items: inherit;
+
+        height: 100%;
+        width: 40px;
+        background-color: hsl(240, 100%, 70%);
+        border-radius: 0 5px 0 0;
+    }
+
+    .search .custom .title svg{
+        height: 30px;
+        width: 30px;
+
+        fill: hsl(240, 20%, 20%);
+    }
+
+    .search .custom .title p{
+        height: 100%;
+
+        line-height: 38px;
+        font-size: 1.2rem;
+        padding: 0 10px;
+        margin: 0;
+
+        border-radius: 5px;
+        background-color: hsl(240, 50%, 95%);
+    }
+
     .search .group .title{
         flex-direction: column;
         justify-content: flex-start;

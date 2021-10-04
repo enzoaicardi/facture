@@ -1,5 +1,5 @@
 
-var cct = task.concat(gtask);
+var cct = gtask.concat(task);
 var calcType = "tasks";
 var presType = "dep";
 var factType = "f";
@@ -7,7 +7,9 @@ var factType = "f";
 function Search(e){
     var t = e.currentTarget;
     var v = t.value;
-
+    var c = document.querySelector('.search .custom h4');
+    c.textContent = v;
+    
     SearchTask(v);
 }
 
@@ -34,14 +36,15 @@ function SearchTask(v){
             let p = array[i].obj.prix;
             let n = array[i].obj.nom;
             let id = array[i].id
-            let h = currentTasks[id] ? 'h' : '';
-            let e = currentTasks[id] ? '' : `onclick="addTask(${id});"`;
+            let c = currentTasks[id];
+            let h = c || c === 0 ? 'h' : '';
+            let e = c || c === 0 ? '' : `onclick="addTask(${id});"`;
 
             var template = 
             `<div class="task ${g} ${h}" ${e}>
                 <div class="title">
                     <h4>${n}</h4>
-                    <p>${p}${typeof p === 'number' ? devise : ''}</p>
+                    <p>${(p > 0 ? p+devise : 'offert')}</p>
                 </div>
                 ${ul}
             </div>`
@@ -69,7 +72,7 @@ function addTask(id){
         var p = t.prix;
         var s = t.sub, ul = '';
 
-        currentTasks[id] = typeof p === 'number' ? p : 0;
+        currentTasks[id] = p;
         updatePrice();
 
         if(s){
@@ -81,7 +84,7 @@ function addTask(id){
             <div class="desc">
                 <div class="title">
                     <h4>${t.nom}</h4>
-                    <p>${p}${typeof p === 'number' ? devise : ''}</p>
+                    <p>${(p > 0 ? p+devise : 'offert')}</p>
                 </div>
                 ${ul}
             </div>
@@ -116,6 +119,29 @@ function subTasks(array){
     }
 
     return '<ul>'+li+'</ul>';
+
+}
+
+// add the task into cct array[]
+function addCustomTask(){
+
+    var p = Number(document.querySelector('.search .custom p').textContent.replace(/[^0-9]/gi, ''));
+    var n = document.querySelector('.search .custom h4').textContent;
+
+    if(n !== ''){
+
+        var obj = {
+            nom: n,
+            prix: p,
+        }
+        
+        var genID = cct.length;
+
+        // push the task
+        cct.push(obj);
+        addTask(genID);
+
+    }
 
 }
 
