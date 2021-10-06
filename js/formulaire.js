@@ -218,8 +218,8 @@ function ExportData(){
 
         let template = 
         `<tr>
-            <td><b>Heures</b></td>
-            <td>${p.h}h</td>
+            <td><b>Heures travaillées</b></td>
+            <td>${p.txt}</td>
         </tr>
         <tr>
             <td><b>Taux horaire</b></td>

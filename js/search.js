@@ -152,8 +152,9 @@ function closeSearch(){
 
 function updatePrice(){
 
-    var b = document.querySelector('.formulaire .task .total b');
+    var b = document.querySelector('.formulaire .task .total.prix b');
     var total = 0;
+    var txt = '';
     var v = 0;
 
     if(calcType === 'tasks'){
@@ -169,14 +170,18 @@ function updatePrice(){
     
     else if(calcType === 'hours'){
 
-        var input = document.querySelector('.formulaire .task .total input');
-        v = input.value;
+        var input = document.querySelectorAll('.formulaire .task .total input');
 
-        total = heure * v;
+        var v0 = Number(input[0].value || 0);
+        var v1 = Number(input[1].value || 0) / 60;
+        v = (v0 + v1);
+
+        txt = input[0].value + 'h' + input[1].value;
+        total = Math.ceil(heure * v);
 
     }
 
     b.textContent = total + devise;
-    return {total: total, h: v};
+    return {total: total, h: v, txt: txt};
 
 }

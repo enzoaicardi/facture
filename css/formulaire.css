@@ -295,38 +295,45 @@
     
     .formulaire .task .total{
         margin-top: 10px;
+        margin-bottom: 10px;
         width: 90%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
     }
 
+    .formulaire .task .total.prix{
+        margin-bottom: 0;
+    }
+
+    .formulaire .task .total.t{
+        display: none;
+    }
+
+    .formulaire .task .total p{
+        font-weight: 700;
+        margin-left: 5px;
+    }
+
     .formulaire .task .total p:first-child{
-        font-weight: 600;
         margin-right: 6px;
     }
-        .formulaire .task .total.t p:first-child{
-            display: none;
-        }
 
     .formulaire .task .total input{
         width: 60px;
         height: 34px;
         padding: 0 10px;
-        margin-right: 20px;
+        margin-left: 5px;
         font-weight: 700;
         
         border-radius: 5px;
         border: 2px solid hsl(240, 20%, 20%);
     }
-        .formulaire .task .total.t input{
-            display: none;
-        }
 
-    .formulaire .task .total p:last-child{
+    .formulaire .task .total.prix p{
         padding: 7px 14px;
-        /* margin-right: 44px; */
         border-radius: 5px;
+        margin: 0;
         font-weight: 400;
         background-color: hsl(240, 20%, 20%);
         color: hsl(240, 50%, 95%);
