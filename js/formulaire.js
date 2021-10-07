@@ -13,7 +13,7 @@ var presta = {
     ville: "43190 Tence",
 
     siren: "903 680 296",
-    siret: "903 680 296"
+    siret: "903 680 296 00014"
 
 };
 
