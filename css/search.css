@@ -219,6 +219,11 @@
         border-radius: 5px;
         background-color: hsl(115, 75%, 40%);
     }
+
+    .search .title .negatif{
+        background-color: hsl(10, 70%, 50%);
+    }
+
         .search .group .title p{
             margin-top: 6px;
             margin-left: 0;

@@ -267,6 +267,10 @@
                 font-weight: 600;
             }
 
+            .formulaire .task_list .desc .negatif{
+                color: hsl(15, 75%, 40%);
+            }
+
             .formulaire .task_list .desc h4{
                 flex: 1 1 auto;
                 font-weight: 700;

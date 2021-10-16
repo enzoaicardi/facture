@@ -44,7 +44,7 @@ function SearchTask(v){
             `<div class="task ${g} ${h}" ${e}>
                 <div class="title">
                     <h4>${n}</h4>
-                    <p>${(p > 0 ? p+devise : 'offert')}</p>
+                    <p ${(p < 0 ? 'class="negatif"' : '')}>${(p === 0 ? 'offert' : p+devise)}</p>
                 </div>
                 ${ul}
             </div>`
@@ -79,12 +79,15 @@ function addTask(id){
             ul = subTasks(s)
         }
 
+        console.log(p);
+        console.log(p === 0);
+
         var template =
         `<section data-id="${id}">
             <div class="desc">
                 <div class="title">
                     <h4>${t.nom}</h4>
-                    <p>${(p > 0 ? p+devise : 'offert')}</p>
+                    <p ${(p < 0 ? 'class="negatif"' : '')}>${(p === 0 ? 'offert' : p+devise)}</p>
                 </div>
                 ${ul}
             </div>
@@ -125,7 +128,13 @@ function subTasks(array){
 // add the task into cct array[]
 function addCustomTask(){
 
-    var p = Number(document.querySelector('.search .custom p').textContent.replace(/[^0-9.,-]/gi, ''));
+    var str = document.querySelector('.search .custom p').textContent.replace(/[^0-9.-]/gi, '');
+    var p = Number(str.replace(/[^0-9.]/gi, ''));
+
+    if(/^-/.test(str)){
+        p = -p;
+    }
+
     var n = document.querySelector('.search .custom h4').textContent;
 
     if(n !== ''){

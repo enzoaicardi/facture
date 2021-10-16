@@ -201,7 +201,7 @@ function ExportData(){
                 tr += 
                 `<tr>
                     <td><h4>${obj.nom}</h4>${ul}</td>
-                    <td>${calcType === 'tasks' ? (obj.prix > 0 ? obj.prix+devise : 'offert') : ''}</td>
+                    <td>${calcType === 'tasks' ? (obj.prix === 0 ? 'offert' : obj.prix+devise) : ''}</td>
                 </tr>`;
             }
 
