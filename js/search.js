@@ -125,7 +125,7 @@ function subTasks(array){
 // add the task into cct array[]
 function addCustomTask(){
 
-    var p = Number(document.querySelector('.search .custom p').textContent.replace(/[^0-9]/gi, ''));
+    var p = Number(document.querySelector('.search .custom p').textContent.replace(/[^0-9.,-]/gi, ''));
     var n = document.querySelector('.search .custom h4').textContent;
 
     if(n !== ''){
