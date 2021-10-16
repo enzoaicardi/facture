@@ -79,9 +79,6 @@ function addTask(id){
             ul = subTasks(s)
         }
 
-        console.log(p);
-        console.log(p === 0);
-
         var template =
         `<section data-id="${id}">
             <div class="desc">
