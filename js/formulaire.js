@@ -46,11 +46,11 @@ function Type(e, type){
 
     t.classList.add('s');
 
-    if(type === 'hours' || type === 'tasks'){
+    if(type === 'jours' || type === 'tasks'){
 
         var total = document.querySelector('.formulaire .task .total');
 
-        if(type === 'hours'){
+        if(type === 'jours'){
             total.classList.remove('t');
         }
         else{
@@ -71,17 +71,17 @@ function Type(e, type){
 
         switch (presType) {
             case "depa":
-                pt = "Dépannage informatique (logiciel et/ou machine)"; heure=30; break;
+                pt = "Dépannage informatique (logiciel et/ou machine)"; heure=20; break;
             case "cour":
-                pt = "Cours d'informatique et médiation numérique"; heure=30; break;
+                pt = "Cours d'informatique et médiation numérique"; heure=20; break;
             case "webd":
-                pt = "Création, entretient ou mise à jour d'un site web"; heure=45; break;
+                pt = "Création, entretient ou mise à jour d'un site web"; heure=40; jour=100; break;
             case "info":
-                pt = "Infographie, réalisation de maquettes numériques"; heure=40; break;
+                pt = "Infographie, réalisation de maquettes numériques"; heure=35; jour=60; break;
             case "logo":
-                pt = "Réalisation d'un logo numérique"; heure=36; break;
+                pt = "Réalisation d'un logo numérique"; heure=35; jour=60; break;
             case "mont":
-                pt = "Montage d'ordinateur"; heure=30; break;
+                pt = "Montage d'ordinateur"; heure=20; break;
         }
 
         updatePrice();
@@ -198,10 +198,11 @@ function ExportData(){
             }
 
             if(obj){
+                var px = obj.prix || noprice;
                 tr += 
                 `<tr>
                     <td><h4>${obj.nom}</h4>${ul}</td>
-                    <td>${calcType === 'tasks' ? (obj.prix === 0 ? 'offert' : obj.prix+devise) : ''}</td>
+                    <td>${calcType === 'tasks' ? (px === 0 ? 'offert' : px+devise) : ''}</td>
                 </tr>`;
             }
 
@@ -214,20 +215,20 @@ function ExportData(){
     tbody.innerHTML = table_content;
 
     // add ending lines of table
-    if(calcType === 'hours'){
+    if(calcType === 'jours'){
 
         let template = 
         `<tr>
-            <td><b>Heures travaillées</b></td>
+            <td><b>Jours travaillées</b></td>
             <td>${p.txt}</td>
         </tr>
         <tr>
-            <td><b>Taux horaire</b></td>
-            <td>${heure+devise}</td>
+            <td><b>Taux journalier</b></td>
+            <td>${jour+devise}</td>
         </tr>
         <tr class="total">
             <td><b>Total</b></td>
-            <td>${(heure*p.h)+devise}</td>
+            <td>${(jour*p.t)+devise}</td>
         </tr>`;
 
         tbody.insertAdjacentHTML('beforeend', template);

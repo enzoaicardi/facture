@@ -1,69 +1,71 @@
 // TASK OBJECTS
 
+var TVA = null;
+var heure = 30;
+var jour = 100;
+var devise = '€';
+var noprice = '--- ';
+
 var gtask = [
 
     {
-        nom: "Initialisation PC [Windows 10]",
-        sub: [1,2,3,4,5,6],
-        prix: 30
+        nom: "Création d'un site web",
+        sub: [1, 2, 3, 4]
+    },
+    {
+        nom: "Réalisation d'un site web",
+        sub: [4]
+    },
+    {
+        nom: "Maintenance d'un site web",
+        sub: [5, 6, 7, 8]
     },
 
     {
-        nom: "Réinstallation OS [Windows 10]",
-        sub: [8,9,10,11],
-        prix: 20
+        nom: "Création d'un logo",
+        sub: [1, 2, 3, 9, 10]
+    },
+    {
+        nom: "Réalisation d'un logo",
+        sub: [3, 9, 10]
     },
 
     {
-        nom: "Effectuer une backup",
-        sub: [8,12,13],
-        prix: 20
+        nom: "Création d'une infographie/maquette",
+        sub: [1, 2, 3, 11]
     },
+    {
+        nom: "Réalisation d'une infographie/maquette",
+        sub: [3, 11]
+    }
 
-]
+];
 
 var task = [
 
     {nom: "", prix: 0},
-    // 1
+    // 0
 
-    // Initialisation PC
-    {nom: "Configuration de windows", prix: 5},
-    {nom: "Utilisation d'un compte local", prix: 0},
-    {nom: "Nettoyer les applications", prix: 5},
-    {nom: "Nettoyer les applications au demarrage", prix: 5},
-    {nom: "Installation d'un navigateur et d'une suite bureautique", prix: 5},
-    {nom: "Installation des pilotes et mises à jours", prix: 10},
-    // 6
+    {nom: "Elaboration d'une charte graphique"},
+    {nom: "Création de pistes"},
+    {nom: "Création du design final"},
+    // 3
+    
+    {nom: "Codage d'un site web"},
+    {nom: "Hébergement d'un site web"},
+    {nom: "Réservation d'un nom de domaine"},
+    {nom: "Configuration de la zone DNS"},
+    {nom: "Maintenance"},
+    // 8
+    
+    {nom: "Réalisation de plusieurs logos vectoriels"},
+    {nom: "Envoi d'une présentation détaillée de la création"},
+    // 10
 
-    // Désactivation du mode S
-    {nom: "Désactivation du mode S", prix: 10},
-    // 7
+    {nom: "Exportation et remise du fichier"},
+    {nom: "Impression par un tiers"}
 
-    // Réinstallation OS
-    {nom: "Modifier les paramètres du BIOS", prix: 5},
-    {nom: "Charger l'iso de Windows 10", prix: 5},
-    {nom: "Formater les partitions", prix: 10},
-    {nom: "Installer Windows 10", prix: 5},
-    // 11
-
-    // Effectuer une backup
-    {nom: "Créer un fichier backup", prix: 10},
-    {nom: "Restaurer les fichiers", prix: 5},
-    // 13
-
-    // Accès fichier refusé
-    {nom: "Résolution de l'erreur Accès fichier refusé", prix: 20},
-    // 14
-
-    {nom: "Extraction des données depuis le HUB - SSD HDD", prix: 20},
-
-
-]
-
-var TVA = null;
-var heure = 30;
-var devise = '€';
+];
 
 var currentTasks = {
 

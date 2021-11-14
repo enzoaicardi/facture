@@ -36,12 +36,12 @@ function CreateContract(){
             Dénommé ci-après LE PRESTATAIRE,
             `,{text: 'ET', style: {bold: true, italics: true}},`
             M./Mme ${client.nom},
-            situé au ${client.adresse}, ${client.ville},
-            représentant la société ___________________ (forme juridique et dénomination),
-            au capital de ________________
+            situé au ${client.adresse}, ${client.ville},\n
+            représentant la société ________________________________ (forme juridique et dénomination),
+            au capital de ____________________________________
             située au __________________________________________
-            enregistré au registre du commerce et des sociétés de ____________,
-            sous le numéro ______________________________
+            enregistré au registre du commerce et des sociétés de ________________________________,
+            sous le numéro __________________________________
             
             Dénommé ci-après LE CLIENT,
             \nLe Prestataire et Client ci-dessus dénommés sont appelés ensemble «les parties», ou séparément «la partie».
@@ -78,8 +78,8 @@ function CreateContract(){
                 style: 'h1'
             }
             ,`
-            Ce contrat de prestation est conclu pour une durée de _____ heures/jours/mois.
-            Il débutera le _____________ et se terminera le _____________
+            Ce contrat de prestation est conclu pour une durée de _________ jours travaillés.
+            Il débutera le ____________________ et se terminera le ____________________
             Il n’est pas renouvelable tacitement, sauf convention contraire entre les parties.
             `,
             {
@@ -106,16 +106,17 @@ function CreateContract(){
                 style: 'h1'
             }
             ,
-            `\nPour la réalisation des prestations définies à l'Article 1 ci-dessus, le client versera au prestataire la somme de _________________ euros (€), payée de la manière suivante :
+            `\nPour la réalisation des prestations définies à l'Article 1 ci-dessus, le client versera au prestataire la somme de ${p.total} euros (€), payée de la manière suivante :
             
             > 25% soit ${p.total*(0.25)}€ à la signature des présentes,
-            > 25% soit ${p.total*(0.25)}€ au _____ jour suivant la signature des présentes,
+            > 25% soit ${p.total*(0.25)}€ au _______ jour suivant la signature des présentes,
             > 50% soit ${p.total*(0.5)}€ constituant le solde, à la fin de la mission.
             
             Les frais engagés par le prestataire et nécessaires à l'exécution de la prestation, seront facturés en sus au client, sur présentation d’une note de frais.
             `,{text: 'Selon le cas :', style: {bold: true}},`
-            > Le virement est à réaliser sur le compte <coordonnées bancaires>
-            > Le chéque est à transmettre à l'ordre de <ordre>
+            > Le virement est à réaliser sur le compte professionnel de M. ${presta.nom}
+            - IBAN : FR76 1680 7003 1137 0045 5619 296
+            - BIC : CCBPFRPPGRE${contract?.[presType]?.[3] ? contract[presType][3] : ""}
             `,
             {
                 text: 'Article 6 - Confidentialité',
@@ -212,7 +213,7 @@ function CreateContract(){
 
     }
 
-    pdfMake.createPdf(doc).download(`contrat_de_prestation_de_service`);
+    pdfMake.createPdf(doc).download(`CONTRAT_prestation_de_service-${client.nom}`);
 
 }
 
@@ -223,6 +224,12 @@ var contract = {
     cour: false,
 
     webd: {
+        3: `\n\nLe client reconnait que des frais supplémentaires s'appliqueront pour l'hébergement, la maintenance ainsi que la réservation et la configuration du nom de domaine pour le site du client.Ces frais se présentent sous la forme d'un abonnement mensuel de ____________ euros (€) par virement automatique. Ces frais seront appliqués jusqu'à ce que le client demande leur suspension. Le client a connaissance que la suspension des frais entrainera l'arrêt des services.
+        
+        Formulaire de suspension des frais :\n\nEn remplissant ce fomulaire à l'identique sur les deux contrat, le client suspend les frais complémentaires, mettant de fait fin aux services liées.
+        \nDate : __________________________
+        Signature du client :\n\n\n`,
+        
         7: `\nLe client reconnait toutefois que les sites web ont généralement une structure et/ou une base commune. De fait tous les modèles et toutes les librairies utilisés et/ou créés pendant la durée du contrat restent la propriété du Prestataire.
         \nSauf mention contraire de la part du Client, le Prestataire peut faire mention du travail réalisé dans le cadre du contrat, sur son site personnel ou à toute personne physique.`
     },

@@ -1,6 +1,6 @@
 
 var cct = gtask.concat(task);
-var calcType = "tasks";
+var calcType = "jours";
 var presType = "dep";
 var factType = "f";
 
@@ -33,7 +33,7 @@ function SearchTask(v){
                 g = 'group';
             }
 
-            let p = array[i].obj.prix;
+            let p = array[i].obj.prix || noprice;
             let n = array[i].obj.nom;
             let id = array[i].id
             let c = currentTasks[id];
@@ -69,7 +69,7 @@ function addTask(id){
         var main = document.querySelector('.formulaire .bloc.task .task_list');
         var t = cct[id];
 
-        var p = t.prix;
+        var p = t.prix || noprice;
         var s = t.sub, ul = '';
 
         currentTasks[id] = p;
@@ -174,20 +174,20 @@ function updatePrice(){
 
     }
     
-    else if(calcType === 'hours'){
+    else if(calcType === 'jours'){
 
         var input = document.querySelectorAll('.formulaire .task .total input');
 
-        var v0 = Number(input[0].value || 0);
-        var v1 = Number(input[1].value || 0) / 60;
-        v = (v0 + v1);
+        var v = Number(input[0].value || 0);
+        // var v1 = Number(input[1].value || 0) / 60;
+        // v = (v0 + v1);
 
-        txt = input[0].value + 'h' + input[1].value;
-        total = Math.ceil(heure * v);
+        txt = input[0].value/* + input[1].value*/;
+        total = Math.ceil(jour * v);
 
     }
 
     b.textContent = total + devise;
-    return {total: total, h: v, txt: txt};
+    return {total: total, t: v, txt: txt};
 
 }
