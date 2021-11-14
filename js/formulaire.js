@@ -75,11 +75,11 @@ function Type(e, type){
             case "cour":
                 pt = "Cours d'informatique et médiation numérique"; heure=20; break;
             case "webd":
-                pt = "Création, entretient ou mise à jour d'un site web"; heure=40; jour=100; break;
+                pt = "Création, entretient ou mise à jour d'un site web"; heure=40; jour=140; break;
             case "info":
-                pt = "Infographie, réalisation de maquettes numériques"; heure=35; jour=60; break;
+                pt = "Infographie, réalisation de maquettes numériques"; heure=35; jour=130; break;
             case "logo":
-                pt = "Réalisation d'un logo numérique"; heure=35; jour=60; break;
+                pt = "Réalisation d'un logo numérique"; heure=35; jour=130; break;
             case "mont":
                 pt = "Montage d'ordinateur"; heure=20; break;
         }

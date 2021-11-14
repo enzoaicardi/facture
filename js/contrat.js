@@ -224,7 +224,7 @@ var contract = {
     cour: false,
 
     webd: {
-        3: `\n\nLe client reconnait que des frais supplémentaires s'appliqueront pour l'hébergement, la maintenance ainsi que la réservation et la configuration du nom de domaine pour le site du client.Ces frais se présentent sous la forme d'un abonnement mensuel de ____________ euros (€) par virement automatique. Ces frais seront appliqués jusqu'à ce que le client demande leur suspension. Le client a connaissance que la suspension des frais entrainera l'arrêt des services.
+        3: `\n\nLe client reconnait que des frais supplémentaires s'appliqueront pour l'hébergement, la maintenance ainsi que la réservation et la configuration du nom de domaine pour le site du client.Ces frais se présentent sous la forme d'un abonnement mensuel/annuel de ____________ euros (€) par virement automatique. Ces frais seront appliqués jusqu'à ce que le client demande leur suspension. Le client a connaissance que la suspension des frais entrainera l'arrêt des services.
         
         Formulaire de suspension des frais :\n\nEn remplissant ce fomulaire à l'identique sur les deux contrat, le client suspend les frais complémentaires, mettant de fait fin aux services liées.
         \nDate : __________________________
