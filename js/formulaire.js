@@ -2,6 +2,7 @@
 
 var info = {
     name: '',
+    siret: '',
     date: '',
     ref: ''
 };
@@ -30,7 +31,9 @@ function setToday(){
     var yyyy = today.getFullYear();
 
     today = dd + '/' + mm + '/' + yyyy;
+    var number = dd+mm+yyyy;
     document.querySelector('.formulaire .ref [name="date"]').value = today;
+    document.querySelector('.formulaire .ref [name="numero"]').value = number;
 }
 
 // functions
@@ -72,6 +75,8 @@ function Type(e, type){
         switch (presType) {
             case "depa":
                 pt = "Dépannage informatique (logiciel et/ou machine)"; heure=20; break;
+            case "hebg":
+                pt = "Hébergement et maintenance d'un site web"; heure=20; break;
             case "cour":
                 pt = "Cours d'informatique et médiation numérique"; heure=20; break;
             case "webd":
@@ -90,8 +95,9 @@ function Type(e, type){
 }
 
 function updateLocalI(){
-    local_i = localStorage.getItem('ref-'+factType) || 1;
-    document.querySelector('.ref [name="numero"]').value = local_i;
+    // local_i = localStorage.getItem('ref-'+factType) || 1;
+    // document.querySelector('.ref [name="numero"]').value = local_i;
+    return;
 }
 updateLocalI();
 
@@ -142,8 +148,9 @@ function updateData(){
     var form = document.querySelector('.formulaire');
 
     info.name = client.nom = copyText(['.identity [name="nom"]', '.identity [name="prenom"]'], '.consommateur b');
-    client.ville = copyText(['.identity [name="code"]', '.identity [name="ville"]'], '.consommateur p:nth-child(4)');
-    client.adresse = copyText(['.identity [name="adresse"]'], '.consommateur p:nth-child(3)');
+    client.ville = copyText(['.identity [name="code"]', '.identity [name="ville"]'], '.consommateur p:nth-child(5)');
+    client.adresse = copyText(['.identity [name="adresse"]'], '.consommateur p:nth-child(4)');
+    client.siret = copyText(['.identity [name="siret"]'], '.consommateur .siret', 'SIRET : ');
 
     let num = document.querySelector('.ref [name="numero"]').value;
     local_i = Number(num);
@@ -157,13 +164,16 @@ function updateData(){
 
     print.querySelector('.objet span').textContent = pt;
 
-    function copyText(e, o){
+    function copyText(e, o, pf){
+        pf = pf || '';
         var t = '';
         for(var i=0; i<e.length; i++){
             t += i === 0 ? '' : ' ';
             t += form.querySelector(e[i]).value;
         }
-        print.querySelector(o).textContent = t;
+        var tc = pf+t;
+        if(!t) tc = '';
+        print.querySelector(o).textContent = tc;
         return t;
     }
 

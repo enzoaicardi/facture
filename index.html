@@ -44,12 +44,13 @@
         <div class="bloc type">
             <button onclick="Type(event, 'f');Blur(1,3);">Facture</button>
             <button onclick="Type(event, 'd');Blur(1,3);">Devis</button>
-            <button onclick="Type(event, 'fb');Blur(1,3);">Facture-B</button>
+            <!-- <button onclick="Type(event, 'fb');Blur(1,3);">Facture-B</button> -->
         </div>
 
         <div class="bloc identity h">
             <input class="sm" type="text" name="prenom" placeholder="Prénom" onkeydown="Empty(event);">
             <input class="sm" type="text" name="nom" placeholder="Nom" onkeydown="Empty(event);">
+            <input class="l" type="text" name="siret" placeholder="SIRET">
             <input class="l" type="text" name="adresse" placeholder="20 rue des écuries">
             <input class="sm" type="number" name="code" placeholder="Code postal">
             <input class="sm" type="text" name="ville" placeholder="Ville">
@@ -62,12 +63,13 @@
         </div>
 
         <div class="bloc mode h">
-            <!-- <button onclick="Type(event, 'depa');Blur(4,1);">Dépannage</button> -->
-            <!-- <button onclick="Type(event, 'cour');Blur(4,1);">Médiation</button> -->
             <button onclick="Type(event, 'webd');Blur(4,1);">WebDesign</button>
+            <button onclick="Type(event, 'hebg');Blur(4,1);">Hébergement</button>
             <button onclick="Type(event, 'info');Blur(4,1);">Infographie</button>
             <!-- <button onclick="Type(event, 'mont');Blur(4,1);">Montage</button> -->
             <button onclick="Type(event, 'logo');Blur(4,1);">Logo</button>
+            <button onclick="Type(event, 'depa');Blur(4,1);">Dépannage</button>
+            <button onclick="Type(event, 'cour');Blur(4,1);">Médiation</button>
         </div>
 
         <div class="bloc mode calc h">
@@ -188,6 +190,7 @@
                 <div class="consommateur">
                     <h2>Facturé à</h2>
                     <p><b>Jean-Michel Blanquer</b></p>
+                    <p><b class="siret">0000 0000 0000 0000</b></p>
                     <p>20 rue des ecoliers</p>
                     <p>56909 Utiac</p>
                 </div>
